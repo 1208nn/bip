@@ -58,8 +58,7 @@
             //获取并设置语录
             var saying = getSaying()
             // 在打开网页的时候，刷新顶部的语录
-            $("#saying").text(saying);
-            $("#saying").attr("title", saying);
+            document.getElementById("saying").innerHTML=saying;
         }
 
     </script>
@@ -117,5 +116,5 @@
 
 
 
-    <script>setSaying();</script>
+    <script>setSaying()</script>
 </body>
