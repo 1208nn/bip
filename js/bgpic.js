@@ -1,11 +1,6 @@
 var timeInterval = 10000;
 setInterval(changeImg, timeInterval);
 function changeImg() {
-  if (curIndex == 4) {
-    var curIndex = 0;
-  } else {
-    curIndex += 1;
-  }
-   document.getElementById("d1").style.backgroundImage = "URL("+arr[curIndex]+")";
+  var curIndex Math.floor(Math.random() * 5);
+  document.getElementById("bgpic").style.backgroundImage = "URL(./backgroung/"+curIndex+".jpg)";
 }
-</script>
