@@ -1,18 +1,18 @@
 function getElementViewTop(element){ 
-    　　var actualTop = element.offsetTop; 
-    　　var current = element.offsetParent; 
-    　　while (current !== null){ 
+        var actualTop = element.offsetTop; 
+        var current = element.offsetParent; 
+        while (current !== null){ 
             actualTop += current.offsetTop; 
             current = current.offsetParent; 
-    　　} 
+        } 
         var elementScrollTop=0; 
-    　　if (document.compatMode == "BackCompat"){ 
+        if (document.compatMode == "BackCompat"){ 
             elementScrollTop=document.body.scrollTop; 
-    　　} else { 
+        } else { 
             elementScrollTop=document.documentElement.scrollTop;  
-    　　} 
+        } 
         return actualTop; 
-    　//　return actualTop-elementScrollTop; 
+      //  return actualTop-elementScrollTop; 
     } 
     function getScroll() 
     { 
@@ -36,6 +36,6 @@ function getElementViewTop(element){
     window.addEventListener('scroll',function(event){ 
         var scrollTop = getScroll().top; 
         if(posTop>=30 && posTop-scrollTop <= 30)  
-            nav.className = 'nav fixed'; 
+            nav.className = 'nav_fixed'; 
         else nav.className = 'nav'; 
     },false); 

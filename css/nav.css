@@ -10,7 +10,7 @@
     background: blue; 
     opacity: 0.5; 
 } 
-.fixed{
+.nav_fixed{
     top: 0%;
     height: 10%; 
     position: fixed; 
