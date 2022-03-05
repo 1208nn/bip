@@ -35,7 +35,7 @@ function getElementViewTop(element){
     var posTop = getElementViewTop(nav); 
     window.addEventListener('scroll',function(event){ 
         var scrollTop = getScroll().top; 
-        if(posTop>=30 && posTop-scrollTop <= 30)  
-            nav.className = 'nav_fixed'; 
+        if(posTop> 0 && posTop-scrollTop < 0)  
+            nav.className = 'nav fixed'; 
         else nav.className = 'nav'; 
     },false); 
