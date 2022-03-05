@@ -9,11 +9,17 @@
     height: 15%;
     width: 100%;
     background: blue;
-    opacity: 0.8;
 }
 
-.fixed {
+.nav {
+    position: absolute;
+    top: 85%;
+    opacity: 0.6;
+}
+
+.nav_fixed {
     top: 0%;
     position: fixed;
     left: 0;
+    opacity: 1;
 }
