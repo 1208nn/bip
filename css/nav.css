@@ -3,7 +3,7 @@
     margin:0; 
 } 
 #nav,.nav{ 
-    bottom: 0%;
+    top: 85%;
     height: 15%; 
     width: 100%; 
     background: blue; 
@@ -11,6 +11,8 @@
 } 
 .fixed{ 
     top: 0%;
+    height: 10%; 
     position: fixed; 
     left:0; 
+    opacity: 1; 
 } 
