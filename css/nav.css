@@ -3,7 +3,8 @@
     margin: 0;
 }
 
-#nav, .nav {
+#nav, .nav,.nav_fixed {
+    z-index: 9999;
     font-size: 24px;
     color: white;
     height: 15%;
