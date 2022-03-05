@@ -1,12 +1,16 @@
-*{ 
-    padding:0; 
-    margin:0; 
-} 
-.nav{ 
-    top: 85%;
-    height: 15%; 
-    width: 100%; 
-    position: absolute;
-    background: blue; 
-    opacity: 0.5; 
-} 
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#nav, .nav {
+    height: 15%;
+    width: 100%;
+    background: blue;
+    opacity: 0.8;
+}
+
+.fixed {
+    position: fixed;
+    left: 0;
+}

@@ -1,41 +1,40 @@
-function htmlScroll() {
-    var top = document.body.scrollTop || document.documentElement.scrollTop;
-    if (elFix.data_top < top) {
-        elFix.style.position = 'fixed';
-        elFix.style.top = 0;
-        elFix.style.opacity = 1;
-        elFix.style.left = elFix.data_left;
+function getElementViewTop(element) {
+    var actualTop = element.offsetTop;
+    var current = element.offsetParent;
+    while (current !== null) {
+        actualTop += current.offsetTop;
+        current = current.offsetParent;
     }
-    else {
-        elFix.style.position = 'absolute';
-        elFix.style.opacity = 0.5;
+    var elementScrollTop = 0;
+    if (document.compatMode == "BackCompat") {
+        elementScrollTop = document.body.scrollTop;
+    } else {
+        elementScrollTop = document.documentElement.scrollTop;
     }
+    return actualTop;
+    //　return actualTop-elementScrollTop; 
 }
+function getScroll() {
+    var top, left, width, height;
 
-function htmlPosition(obj) {
-    var o = obj;
-    var t = o.offsetTop;
-    var l = o.offsetLeft;
-    while (o = o.offsetParent) {
-        t += o.offsetTop;
-        l += o.offsetLeft;
+    if (document.documentElement && document.documentElement.scrollTop) {
+        top = document.documentElement.scrollTop;
+        left = document.documentElement.scrollLeft;
+        width = document.documentElement.scrollWidth;
+        height = document.documentElement.scrollHeight;
+    } else if (document.body) {
+        top = document.body.scrollTop;
+        left = document.body.scrollLeft;
+        width = document.body.scrollWidth;
+        height = document.body.scrollHeight;
     }
-    obj.data_top = t;
-    obj.data_left = l;
+    return { 'top': top, 'left': left, 'width': width, 'height': height };
 }
-
-var oldHtmlWidth = document.documentElement.offsetWidth;
-window.onresize = function () {
-    var newHtmlWidth = document.documentElement.offsetWidth;
-    if (oldHtmlWidth == newHtmlWidth) {
-        return;
-    }
-    oldHtmlWidth = newHtmlWidth;
-    elFix.style.position = 'static';
-    htmlPosition(elFix);
-    htmlScroll();
-}
-window.onscroll = htmlScroll;
-
-var elFix = document.getElementById('nav');
-htmlPosition(elFix);
+var nav = document.getElementById('nav');
+var posTop = getElementViewTop(nav);
+window.addEventListener('scroll', function (event) {
+    var scrollTop = getScroll().top;
+    if (posTop >= 30 && posTop - scrollTop <= 30)
+        nav.className = 'nav fixed';
+    else nav.className = 'nav';
+}, false); 
